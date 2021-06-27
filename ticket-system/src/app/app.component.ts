@@ -1,7 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Ticket } from './models/Ticket';
-import { TicketService } from './services/ticket.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

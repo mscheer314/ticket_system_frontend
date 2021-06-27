@@ -4,11 +4,11 @@ import { Ticket } from '../models/Ticket';
 import { TicketService } from '../services/ticket.service';
 
 @Component({
-  selector: 'view-tickets',
-  templateUrl: './view-tickets.component.html',
-  styleUrls: ['./view-tickets.component.css'],
+  selector: 'tickets-table',
+  templateUrl: './tickets-table.component.html',
+  styleUrls: ['./tickets-table.component.css'],
 })
-export class ViewTicketsComponent implements OnInit {
+export class TicketsTableComponent implements OnInit {
   public tickets!: Ticket[];
   constructor(private ticketService: TicketService) {}
 
