@@ -9,6 +9,8 @@ import { TicketService } from './services/ticket.service';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,14 @@ import { TicketDetailsComponent } from './ticket-details/ticket-details.componen
     TicketsTableComponent,
     TicketDetailsComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    AuthModule.forRoot({
+      ...environment.auth,
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
