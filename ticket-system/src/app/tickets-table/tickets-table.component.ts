@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Ticket } from '../models/Ticket';
+import { Ticket } from '../models/ticket.model';
 import { TicketService } from '../services/ticket.service';
 
 @Component({

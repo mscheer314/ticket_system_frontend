@@ -8,11 +8,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { TicketService } from './services/ticket.service';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
+import { TicketDetailsComponent } from './ticket-details/ticket-details.component';
 
 @NgModule({
-  declarations: [AppComponent, CreateTicketComponent, TicketsTableComponent],
+  declarations: [
+    AppComponent,
+    CreateTicketComponent,
+    TicketsTableComponent,
+    TicketDetailsComponent,
+  ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
-  providers: [TicketService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
