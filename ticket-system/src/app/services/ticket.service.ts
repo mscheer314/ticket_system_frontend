@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ticket } from '../models/ticket.model';
+import { Ticket } from '../models/Ticket';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class TicketService {
   apiServerUrl = 'http://localhost:8080';
 
@@ -11,9 +11,5 @@ export class TicketService {
 
   public getTickets(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.apiServerUrl}/tickets`);
-  }
-
-  public get(id: number): Observable<Ticket> {
-    return this.http.get<Ticket>(`${this.apiServerUrl}/tickets/${id}`);
   }
 }
