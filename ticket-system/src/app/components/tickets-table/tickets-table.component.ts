@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Ticket } from '../models/ticket.model';
-import { TicketService } from '../services/ticket.service';
+import { Ticket } from '../../models/ticket.model';
+import { TicketService } from '../../services/ticket.service';
 
 @Component({
   selector: 'tickets-table',
