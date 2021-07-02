@@ -26,7 +26,7 @@ export class TicketDetailsComponent implements OnInit, OnDestroy {
   public getTicket(): void {
     this.ticketSubscription = this.ticketService
       .get(this.route.snapshot.params['id'])
-      .subscribe((data) => {
+      .subscribe((data: Ticket) => {
         console.log('This is my ticket: ', data);
         this.ticket = data;
       });
