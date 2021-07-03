@@ -9,11 +9,16 @@ export class TicketService {
 
   constructor(private http: HttpClient) {}
 
-  public getTickets(): Observable<Ticket[]> {
+  getTickets(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(`${this.apiServerUrl}/tickets`);
   }
 
-  public get(id: number): Observable<Ticket> {
+  get(id: number): Observable<Ticket> {
     return this.http.get<Ticket>(`${this.apiServerUrl}/tickets/${id}`);
+  }
+
+  // TODO how do I do this with out any?
+  create(data: Ticket): Observable<any> {
+    return this.http.post(this.apiServerUrl, data);
   }
 }

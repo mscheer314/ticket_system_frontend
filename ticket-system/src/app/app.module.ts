@@ -7,6 +7,7 @@ import { TicketsTableComponent } from './components/tickets-table/tickets-table.
 import { HttpClientModule } from '@angular/common/http';
 import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TicketDetailsComponent } from './components/ticket-details/ticket-details.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { TicketDetailsComponent } from './components/ticket-details/ticket-detai
     CreateTicketComponent,
     TicketsTableComponent,
     TicketDetailsComponent,
+    NavBarComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
   providers: [],
