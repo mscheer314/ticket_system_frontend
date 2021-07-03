@@ -1,3 +1,5 @@
+import { TicketRouteActivatorService } from './services/ticket-route-activator.service';
+import { TicketService } from './services/ticket.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,6 +11,7 @@ import { appRoutes } from './routes';
 import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TicketDetailsComponent } from './components/ticket-details/ticket-details.component';
+import { ErrorFourZeroFourComponent } from './components/error-four-zero-four/error-four-zero-four.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +20,10 @@ import { TicketDetailsComponent } from './components/ticket-details/ticket-detai
     TicketsTableComponent,
     TicketDetailsComponent,
     NavBarComponent,
+    ErrorFourZeroFourComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  providers: [TicketService, TicketRouteActivatorService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
