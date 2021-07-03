@@ -2,6 +2,7 @@ import { TicketService } from './../../services/ticket.service';
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket.model';
 import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'create-ticket',
@@ -10,7 +11,7 @@ import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
 })
 export class CreateTicketComponent implements OnInit {
   ticketForm!: FormGroup;
-  constructor(private ticketService: TicketService) {}
+  constructor(private ticketService: TicketService, private router: Router) {}
 
   ngOnInit(): void {
     let title = new FormControl();
@@ -23,5 +24,9 @@ export class CreateTicketComponent implements OnInit {
 
   public createTicket() {
     // this.ticketService.create(new Ticket());
+  }
+
+  cancel() {
+    this.router.navigate(['/tickets']);
   }
 }
