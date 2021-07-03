@@ -18,16 +18,4 @@ export class TicketsTableComponent implements OnInit {
   ngOnInit(): void {
     this.tickets = this.route.snapshot.data['tickets'];
   }
-
-  // public getTickets(): void {
-  //   this.ticketService.getTickets().subscribe(
-  //     (response: Ticket[]) => {
-  //       this.tickets = response;
-  //       console.dir(this.tickets);
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
 }
