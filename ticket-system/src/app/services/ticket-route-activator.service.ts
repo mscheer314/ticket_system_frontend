@@ -1,13 +1,6 @@
-import { Observable } from 'rxjs';
-import { isEmpty } from 'rxjs/operators';
-import { TicketService } from './ticket.service';
-import {
-  CanActivate,
-  ActivatedRouteSnapshot,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
 import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
+import { TicketService } from './ticket.service';
 
 @Injectable()
 export class TicketRouteActivatorService implements CanActivate {

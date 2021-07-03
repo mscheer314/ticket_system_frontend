@@ -1,17 +1,16 @@
-import { TicketRouteActivatorService } from './services/ticket-route-activator.service';
-import { TicketService } from './services/ticket.service';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CreateTicketComponent } from './components/create-ticket/create-ticket.component';
-import { TicketsTableComponent } from './components/tickets-table/tickets-table.component';
-import { HttpClientModule } from '@angular/common/http';
-import { appRoutes } from './routes';
-import { RouterModule } from '@angular/router';
+import { ErrorFourZeroFourComponent } from './components/error-four-zero-four/error-four-zero-four.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { TicketDetailsComponent } from './components/ticket-details/ticket-details.component';
-import { ErrorFourZeroFourComponent } from './components/error-four-zero-four/error-four-zero-four.component';
+import { TicketsTableComponent } from './components/tickets-table/tickets-table.component';
+import { appRoutes } from './routes';
+import { TicketRouteActivatorService } from './services/ticket-route-activator.service';
+import { TicketService } from './services/ticket.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,11 @@ import { ErrorFourZeroFourComponent } from './components/error-four-zero-four/er
     ErrorFourZeroFourComponent,
   ],
   imports: [BrowserModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
-  providers: [TicketService, TicketRouteActivatorService],
+  providers: [
+    TicketService,
+    TicketRouteActivatorService,
+    // { provide: 'canDeactiveCreateTicket', useValue: checkDirtyState },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

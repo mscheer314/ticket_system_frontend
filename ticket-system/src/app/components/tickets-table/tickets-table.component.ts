@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { Ticket } from '../../models/ticket.model';
 import { TicketService } from '../../services/ticket.service';
 
@@ -10,21 +10,24 @@ import { TicketService } from '../../services/ticket.service';
 })
 export class TicketsTableComponent implements OnInit {
   public tickets!: Ticket[];
-  constructor(private ticketService: TicketService) {}
+  constructor(
+    private ticketService: TicketService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.getTickets();
+    this.tickets = this.route.snapshot.data['tickets'];
   }
 
-  public getTickets(): void {
-    this.ticketService.getTickets().subscribe(
-      (response: Ticket[]) => {
-        this.tickets = response;
-        console.dir(this.tickets);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
+  // public getTickets(): void {
+  //   this.ticketService.getTickets().subscribe(
+  //     (response: Ticket[]) => {
+  //       this.tickets = response;
+  //       console.dir(this.tickets);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
 }
