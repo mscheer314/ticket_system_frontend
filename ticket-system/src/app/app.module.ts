@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CreateTicketComponent } from './components/create-ticket/create-ticket.component';
-import { ErrorFourZeroFourComponent } from './components/error-four-zero-four/error-four-zero-four.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { TicketDetailsComponent } from './components/ticket-details/ticket-details.component';
-import { TicketsTableComponent } from './components/tickets-table/tickets-table.component';
+import {
+  CreateTicketComponent,
+  ErrorFourZeroFourComponent,
+  NavBarComponent,
+  TicketDetailsComponent,
+  TicketsTableComponent,
+} from './components/index';
 import { appRoutes } from './routes';
 import { TicketRouteActivatorService } from './services/ticket-route-activator.service';
 import { TicketService } from './services/ticket.service';

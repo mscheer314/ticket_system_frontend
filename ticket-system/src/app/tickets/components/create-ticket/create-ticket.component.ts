@@ -1,8 +1,7 @@
-import { TicketService } from './../../services/ticket.service';
 import { Component, OnInit } from '@angular/core';
-import { Ticket } from 'src/app/models/ticket.model';
-import { FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TicketService } from '../../../services/ticket.service';
 
 @Component({
   selector: 'create-ticket',
