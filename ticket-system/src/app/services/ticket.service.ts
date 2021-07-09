@@ -17,8 +17,7 @@ export class TicketService {
     return this.http.get<Ticket>(`${this.apiServerUrl}/${id}`);
   }
 
-  // TODO how do I do this with out any?
-  create(ticket: Ticket): Observable<any> {
+  public create(ticket: Ticket) {
     const url = `${this.apiServerUrl}/create`;
 
     console.log(url, ticket);

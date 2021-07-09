@@ -2,14 +2,13 @@
     <form [formGroup]="ticketForm" (ngSubmit)="createTicket()">
         <div class="form-group">
             <label for="title">Ticket Title</label>
-            <input formControlName="title" id="title" type="text" class="form-control" placeholder="Ticket title">
+            <input formControlName="title" type="text" class="form-control" placeholder="Ticket title">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <input formControlName="description" class="form-control" type="text" id="description"
-                placeholder="Description">
+            <input formControlName="description" class="form-control" type="text" placeholder="Description">
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!ticketForm.valid">Submit</button>
-        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+        <button type="button" class="btn btn-default" (click)="goToTicketList()">Cancel</button>
     </form>
 </div>
