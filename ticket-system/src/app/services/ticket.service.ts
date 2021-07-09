@@ -5,20 +5,23 @@ import { Ticket } from '../models/Ticket';
 
 @Injectable({ providedIn: 'root' })
 export class TicketService {
-  apiServerUrl = 'http://localhost:8080';
+  apiServerUrl = 'http://localhost:8080/tickets';
 
   constructor(private http: HttpClient) {}
 
   getTickets(): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(`${this.apiServerUrl}/tickets`);
+    return this.http.get<Ticket[]>(this.apiServerUrl);
   }
 
   get(id: number): Observable<Ticket> {
-    return this.http.get<Ticket>(`${this.apiServerUrl}/tickets/${id}`);
+    return this.http.get<Ticket>(`${this.apiServerUrl}/${id}`);
   }
 
   // TODO how do I do this with out any?
-  create(data: Ticket): Observable<any> {
-    return this.http.post(this.apiServerUrl, data);
+  create(ticket: Ticket): Observable<any> {
+    const url = `${this.apiServerUrl}/create`;
+
+    console.log(url, ticket);
+    return this.http.post<Ticket>(url, ticket);
   }
 }

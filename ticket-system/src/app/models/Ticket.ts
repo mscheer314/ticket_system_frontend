@@ -2,12 +2,11 @@ export class Ticket {
   id?: number;
   title: string;
   description: string;
-  createdOn: Date;
-  resolutionDate?: Date;
+  createdOn?: number;
+  resolutionDate?: number;
 
-  constructor(title: string, description: string, createdOn: Date) {
+  constructor(title: string, description: string) {
     this.title = title;
     this.description = description;
-    this.createdOn = createdOn;
   }
 }

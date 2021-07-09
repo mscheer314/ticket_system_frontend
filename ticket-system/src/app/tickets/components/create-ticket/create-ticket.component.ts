@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Ticket } from 'src/app/models/Ticket';
 import { TicketService } from '../../../services/ticket.service';
 
 @Component({
@@ -35,15 +36,12 @@ export class CreateTicketComponent implements OnInit {
   }
 
   public createTicket() {
-    // let newTicket = new Ticket(
-    //   formValues.title,
-    //   formValues.description,
-    //   new Date()
-    // );
+    let newTicket = new Ticket(
+      this.ticketForm.value.title,
+      this.ticketForm.value.description
+    );
 
-    // this.ticketService.create(newTicket);
-
-    console.log(this.ticketForm.value);
+    this.ticketService.create(newTicket);
   }
 
   cancel() {
