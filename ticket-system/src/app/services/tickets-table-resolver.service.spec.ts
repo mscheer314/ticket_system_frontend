@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { TicketsTableResolverService } from './tickets-table-resolver.service';
 
 describe('TicketsTableResolverService', () => {

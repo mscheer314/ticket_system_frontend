@@ -12,8 +12,9 @@ import {
   TicketsTableComponent,
 } from './components/index';
 import { appRoutes } from './routes';
-import { TicketRouteActivatorService } from './services/ticket-route-activator.service';
+import { TicketResolverService } from './services/ticket-resolver.service';
 import { TicketService } from './services/ticket.service';
+import { TicketsTableResolverService } from './services/tickets-table-resolver.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TicketService } from './services/ticket.service';
   ],
   providers: [
     TicketService,
-    TicketRouteActivatorService,
+    TicketResolverService,
+    TicketsTableResolverService,
     // { provide: 'canDeactiveCreateTicket', useValue: checkDirtyState },
   ],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ErrorFourZeroFourComponent } from './components/error-four-zero-four/error-four-zero-four.component';
-import { TicketRouteActivatorService } from './services/ticket-route-activator.service';
+import { TicketResolverService } from './services/ticket-resolver.service';
 import { TicketsTableResolverService } from './services/tickets-table-resolver.service';
 import { CreateTicketComponent } from './tickets/components/create-ticket/create-ticket.component';
 import { TicketDetailsComponent } from './tickets/components/ticket-details/ticket-details.component';
@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
   {
     path: 'tickets/:id',
     component: TicketDetailsComponent,
-    canActivate: [TicketRouteActivatorService],
+    resolve: { ticket: TicketResolverService },
   },
   {
     path: 'create-ticket',

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 import { Ticket } from 'src/app/models/Ticket';
 import { TicketService } from '../../../services/ticket.service';
 
@@ -10,34 +10,40 @@ import { TicketService } from '../../../services/ticket.service';
   styleUrls: ['./ticket-details.component.css'],
 })
 export class TicketDetailsComponent implements OnInit, OnDestroy {
-  public ticket!: Ticket;
+  public ticket: Ticket = {
+    title: '',
+    description: '',
+  };
+
   private ticketSubscription!: Subscription;
+  public ticketObservable!: Observable<Ticket>;
 
   constructor(
+    private router: Router,
     private ticketService: TicketService,
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    this.getTicket();
-  }
-
-  public getTicket(): void {
-    this.ticketSubscription = this.ticketService
-      .get(this.route.snapshot.params['id'])
-      .subscribe((data: Ticket) => {
-        console.log('This is my ticket: ', data);
+  ngOnInit() {
+    this.route.params.forEach((params: Params) => {
+      this.ticketService.getTicket(+params['id']).subscribe((data) => {
         this.ticket = data;
       });
+    });
+  }
 
-    console.log(
-      'the log: ',
-      this.ticketService.get(this.route.snapshot.params['id'])
-    );
+  deleteTicket() {
+    this.ticketService.delete(this.ticket.id!).subscribe((result) => {
+      this.router.navigate(['tickets']);
+    });
   }
 
   ngOnDestroy(): void {
     this.ticketSubscription.unsubscribe();
     console.log("I've been destroyed");
+  }
+
+  goToTicketList() {
+    this.router.navigate(['/tickets']);
   }
 }

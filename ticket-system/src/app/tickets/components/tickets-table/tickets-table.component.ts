@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Ticket } from 'src/app/models/Ticket';
-import { TicketService } from '../../../services/ticket.service';
 
 @Component({
   selector: 'tickets-table',
@@ -10,10 +9,7 @@ import { TicketService } from '../../../services/ticket.service';
 })
 export class TicketsTableComponent implements OnInit {
   public tickets!: Ticket[];
-  constructor(
-    private ticketService: TicketService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.tickets = this.route.snapshot.data['tickets'];

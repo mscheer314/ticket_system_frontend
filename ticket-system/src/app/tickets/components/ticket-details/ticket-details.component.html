@@ -1,6 +1,7 @@
 <div class="container">
-    <p>{{ticket.id}}</p>
-    <p>{{ticket.title}}</p>
-    <p>{{ticket.description}}</p>
+    <p> {{ticket.title}}</p>
+    <p>{{ticket.description}} </p>
     <p>{{ticket.createdOn}}</p>
+
+    <button class="btn-danger" (click)="deleteTicket()">Delete</button>
 </div>

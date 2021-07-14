@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { map } from 'rxjs/operators';
 import { TicketService } from './ticket.service';
 
 @Injectable({
@@ -10,6 +9,7 @@ export class TicketsTableResolverService implements Resolve<any> {
   constructor(private ticketService: TicketService) {}
 
   resolve() {
-    return this.ticketService.getTickets().pipe(map((tickets) => tickets));
+    // becuase this is a resolver, Angular automatically subscribes to the Observable that is returned by getTickets()
+    return this.ticketService.getTickets();
   }
 }
