@@ -15,7 +15,6 @@ export class TicketDetailsComponent implements OnInit {
     description: '',
   };
 
-  // private ticketSubscription!: Subscription;
   public ticketObservable!: Observable<Ticket>;
 
   constructor(
