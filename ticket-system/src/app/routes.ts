@@ -3,6 +3,7 @@ import { ErrorFourZeroFourComponent } from './components/error-four-zero-four/er
 import { TicketResolverService } from './services/ticket-resolver.service';
 import { TicketsTableResolverService } from './services/tickets-table-resolver.service';
 import { CreateTicketComponent } from './tickets/components/create-ticket/create-ticket.component';
+import { EditTicketComponent } from './tickets/components/edit-ticket/edit-ticket.component';
 import { TicketDetailsComponent } from './tickets/components/ticket-details/ticket-details.component';
 import { TicketsTableComponent } from './tickets/components/tickets-table/tickets-table.component';
 
@@ -21,6 +22,11 @@ export const appRoutes: Routes = [
     path: 'create-ticket',
     component: CreateTicketComponent,
     // canDeactivate: ['canDeactiveCreateTicket'],
+  },
+  {
+    path: 'edit/:id',
+    component: EditTicketComponent,
+    resolve: { ticket: TicketResolverService },
   },
   { path: '', redirectTo: 'tickets', pathMatch: 'full' },
   { path: '404', component: ErrorFourZeroFourComponent },

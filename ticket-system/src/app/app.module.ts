@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {
   CreateTicketComponent,
+  EditTicketComponent,
   ErrorFourZeroFourComponent,
   NavBarComponent,
   TicketDetailsComponent,
@@ -24,6 +25,7 @@ import { TicketsTableResolverService } from './services/tickets-table-resolver.s
     TicketDetailsComponent,
     NavBarComponent,
     ErrorFourZeroFourComponent,
+    EditTicketComponent,
   ],
   imports: [
     FormsModule,

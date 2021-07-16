@@ -10,7 +10,7 @@ import { TicketService } from '../../../services/ticket.service';
   styleUrls: ['./ticket-details.component.css'],
 })
 export class TicketDetailsComponent implements OnInit {
-  public ticket: Ticket = {
+  ticket: Ticket = {
     title: '',
     description: '',
   };
