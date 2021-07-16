@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Ticket } from 'src/app/models/Ticket';
 import { TicketService } from '../../../services/ticket.service';
 
@@ -9,13 +9,13 @@ import { TicketService } from '../../../services/ticket.service';
   templateUrl: './ticket-details.component.html',
   styleUrls: ['./ticket-details.component.css'],
 })
-export class TicketDetailsComponent implements OnInit, OnDestroy {
+export class TicketDetailsComponent implements OnInit {
   public ticket: Ticket = {
     title: '',
     description: '',
   };
 
-  private ticketSubscription!: Subscription;
+  // private ticketSubscription!: Subscription;
   public ticketObservable!: Observable<Ticket>;
 
   constructor(
@@ -36,11 +36,6 @@ export class TicketDetailsComponent implements OnInit, OnDestroy {
     this.ticketService.delete(this.ticket.id!).subscribe((result) => {
       this.router.navigate(['tickets']);
     });
-  }
-
-  ngOnDestroy(): void {
-    this.ticketSubscription.unsubscribe();
-    console.log("I've been destroyed");
   }
 
   goToTicketList() {

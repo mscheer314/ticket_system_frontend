@@ -30,7 +30,7 @@ import { TicketsTableResolverService } from './services/tickets-table-resolver.s
     ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [
     TicketService,
