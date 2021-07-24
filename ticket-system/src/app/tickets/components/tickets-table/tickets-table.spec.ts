@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterModule } from '@angular/router';
 import { TicketsTableComponent } from './tickets-table.component';
 
-describe('ViewTicketsComponent', () => {
+describe('TicketsTableComponent', () => {
   let component: TicketsTableComponent;
   let fixture: ComponentFixture<TicketsTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TicketsTableComponent ]
-    })
-    .compileComponents();
+      imports: [RouterModule.forRoot([])],
+      declarations: [TicketsTableComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -30,6 +30,12 @@ export class TicketService {
     return this.http.post<Ticket>(url, ticket);
   }
 
+  // TODO figure out how to get ride of any
+  public update(id: number, data: Ticket): Observable<any> {
+    return this.http.put(`${this.apiServerUrl}/${id}`, data);
+  }
+
+  // TODO figure out how to get ride of any
   public delete(id: number): Observable<any> {
     return this.http.delete(`${this.apiServerUrl}/${id}`);
   }

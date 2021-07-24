@@ -1,5 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
 import { CreateTicketComponent } from './create-ticket.component';
 
 describe('CreateTicketComponent', () => {
@@ -8,9 +10,14 @@ describe('CreateTicketComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateTicketComponent ]
-    })
-    .compileComponents();
+      imports: [
+        HttpClientModule,
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
+      ],
+      declarations: [CreateTicketComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
