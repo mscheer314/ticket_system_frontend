@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Ticket } from 'src/app/models/Ticket';
 import { TicketService } from '../../../services/ticket.service';
@@ -12,15 +17,19 @@ import { TicketService } from '../../../services/ticket.service';
 export class CreateTicketComponent implements OnInit {
   ticketForm: FormGroup;
   ticket: Ticket;
+  title: FormControl;
+  description: FormControl;
 
   constructor(
     private ticketService: TicketService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {
+    this.title = new FormControl('', Validators.required);
+    this.description = new FormControl('', Validators.required);
     this.ticketForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
+      title: this.title,
+      description: this.description,
     });
     this.ticket = new Ticket(
       this.ticketForm.value.title,
