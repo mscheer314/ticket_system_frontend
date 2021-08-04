@@ -5,7 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 import { Ticket } from 'src/app/models/Ticket';
 import { TicketService } from '../../../services/ticket.service';
 
@@ -15,13 +16,16 @@ import { TicketService } from '../../../services/ticket.service';
   styleUrls: ['./create-ticket.component.css'],
 })
 export class CreateTicketComponent implements OnInit {
+  id: number;
   ticketForm: FormGroup;
   ticket: Ticket;
   title: FormControl;
   description: FormControl;
+  isCreateMode: boolean;
 
   constructor(
     private ticketService: TicketService,
+    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
   ) {
@@ -35,9 +39,18 @@ export class CreateTicketComponent implements OnInit {
       this.ticketForm.value.title,
       this.ticketForm.value.description
     );
+
+    this.id = this.route.snapshot.params['id'];
+    this.isCreateMode = !this.id;
   }
 
   ngOnInit(): void {
+    if (!this.isCreateMode) {
+      this.ticketService
+        .getTicket(this.id)
+        .pipe(first())
+        .subscribe((x) => this.ticketForm.patchValue(x));
+    }
     this.onValueChanges();
   }
 
@@ -47,7 +60,7 @@ export class CreateTicketComponent implements OnInit {
     });
   }
 
-  public createTicket() {
+  public onSubmit() {
     this.ticketService
       .create(this.ticket)
       .subscribe((result) => this.goToTicketList());

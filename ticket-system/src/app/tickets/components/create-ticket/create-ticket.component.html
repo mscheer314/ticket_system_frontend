@@ -1,5 +1,7 @@
 <div class="container">
-    <form [formGroup]="ticketForm" (ngSubmit)="createTicket()">
+    <h1 *ngIf="isCreateMode">Create Ticket</h1>
+    <h1 *ngIf="!isCreateMode">Edit Ticket</h1>
+    <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
         <div class="form-group" [ngClass]="{'error': title.invalid && title.dirty}">
             <label for="title">Ticket Title</label>
             <em *ngIf="title.touched && title.errors?.required">Required</em>
