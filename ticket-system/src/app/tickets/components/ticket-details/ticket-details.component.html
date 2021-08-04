@@ -1,7 +1,7 @@
 <div class="container">
     <p> {{ticket.title}}</p>
     <p>{{ticket.description}} </p>
-    <p>{{ticket.createdOn}}</p>
+    <p>{{ticket.createdOn | date: "shortDate"}}</p>
 
     <button class="btn btn-secondary" [routerLink]="['/create-ticket',ticket.id]">Edit</button>
     <button class="btn btn-danger" (click)="deleteTicket()">Delete</button>
