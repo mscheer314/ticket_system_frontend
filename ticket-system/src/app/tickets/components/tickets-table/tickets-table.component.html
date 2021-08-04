@@ -14,7 +14,7 @@
         <td>{{ ticket.id }}</td>
         <td>{{ ticket.title }}</td>
         <td>{{ ticket.description }}</td>
-        <td>{{ ticket.createdOn }}</td>
+        <td>{{ ticket.createdOn | date: "shortDate"}}</td>
       </tr>
     </tbody>
   </table>
