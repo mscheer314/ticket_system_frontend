@@ -25,9 +25,9 @@ export const appRoutes: Routes = [
   { path: 'create-ticket/:id', component: CreateTicketComponent },
   { path: '', redirectTo: 'tickets', pathMatch: 'full' },
   { path: '404', component: ErrorFourZeroFourComponent },
-  // {
-  //   path: 'user',
-  //   loadChildren: () =>
-  //     import('./user/user.module').then((module) => module.UserModule),
-  // },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./user/user.module').then((module) => module.UserModule),
+  },
 ];
