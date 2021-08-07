@@ -38,19 +38,13 @@ export class TicketsTableComponent implements OnInit {
 }
 
 function sortByCreatedOn(ticket1: Ticket, ticket2: Ticket) {
-  if (!ticket1.createdOn > !ticket2.createdOn) return 1;
-  else if (!ticket1.createdOn === !ticket2.createdOn) return 0;
-  else return -1;
+  let date1: Date = new Date(ticket1.createdOn || '1/1/1970');
+  let date2: Date = new Date(ticket2.createdOn || '1/1/1970');
+
+  return date1.getTime() - date2.getTime();
 }
 
 function sortByTicketNumber(ticket1: Ticket, ticket2: Ticket) {
-  // if (typeof ticket1 !== 'undefined' && typeof ticket2 !== 'undefined') {
-  // return ticket1?.id - ticket2?.id;
-  // }
-
-  // START HERE. THIS SORT DOES NOT SHOW IN THE UI. I'M NOT SURE THAT THIS SORT
-  // FUNCTION IS WORKING OR IT THERE IS SOME OTHER ISSUE.
-
   const id1: number = ticket1?.id || 0,
     id2 = ticket2.id || 0;
   return id1 - id2;
