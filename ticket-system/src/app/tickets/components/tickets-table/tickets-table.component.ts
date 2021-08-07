@@ -47,12 +47,18 @@ function sortByTicketNumber(ticket1: Ticket, ticket2: Ticket) {
   // if (typeof ticket1 !== 'undefined' && typeof ticket2 !== 'undefined') {
   // return ticket1?.id - ticket2?.id;
   // }
-  return 0;
+
+  // START HERE. THIS SORT DOES NOT SHOW IN THE UI. I'M NOT SURE THAT THIS SORT
+  // FUNCTION IS WORKING OR IT THERE IS SOME OTHER ISSUE.
+
+  const id1: number = ticket1?.id || 0,
+    id2 = ticket2.id || 0;
+  return id1 - id2;
 }
 
 function sortByTitle(ticket1: Ticket, ticket2: Ticket) {
   console.log('In sortByTitle()');
-  let title1: String = ticket1.title.toLocaleLowerCase(),
+  const title1: String = ticket1.title.toLocaleLowerCase(),
     title2: String = ticket2.title.toLocaleLowerCase();
   if (title1 > title2) return 1;
   if (title1 < title2) return -1;
