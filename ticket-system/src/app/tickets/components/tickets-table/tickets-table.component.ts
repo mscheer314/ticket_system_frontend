@@ -29,6 +29,9 @@ export class TicketsTableComponent implements OnInit {
           this.visableTickets.sort(sortByTitle);
           console.table(this.visableTickets.sort(sortByTitle));
           break;
+        case 'description':
+          this.visableTickets.sort(sortByDescription);
+          break;
         default:
           this.visableTickets.sort(sortByCreatedOn);
           break;
@@ -38,8 +41,8 @@ export class TicketsTableComponent implements OnInit {
 }
 
 function sortByCreatedOn(ticket1: Ticket, ticket2: Ticket) {
-  let date1: Date = new Date(ticket1.createdOn || '1/1/1970');
-  let date2: Date = new Date(ticket2.createdOn || '1/1/1970');
+  const date1: Date = new Date(ticket1.createdOn || '1/1/1970');
+  const date2: Date = new Date(ticket2.createdOn || '1/1/1970');
 
   return date1.getTime() - date2.getTime();
 }
@@ -56,5 +59,13 @@ function sortByTitle(ticket1: Ticket, ticket2: Ticket) {
     title2: String = ticket2.title.toLocaleLowerCase();
   if (title1 > title2) return 1;
   if (title1 < title2) return -1;
+  return 0;
+}
+
+function sortByDescription(ticket1: Ticket, ticket2: Ticket) {
+  const desc1: String = ticket1.description.toLocaleLowerCase(),
+    desc2: String = ticket2.description.toLocaleLowerCase();
+  if (desc1 > desc2) return 1;
+  if (desc1 < desc2) return -1;
   return 0;
 }
