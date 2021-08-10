@@ -11,6 +11,7 @@ import {
   TicketDetailsComponent,
   TicketsTableComponent,
 } from './components/index';
+import { SortDirective } from './directives/sort.directive';
 import { appRoutes } from './routes';
 import { TicketResolverService } from './services/ticket-resolver.service';
 import { TicketService } from './services/ticket.service';
@@ -24,6 +25,7 @@ import { TicketsTableResolverService } from './services/tickets-table-resolver.s
     TicketDetailsComponent,
     NavBarComponent,
     ErrorFourZeroFourComponent,
+    SortDirective,
   ],
   imports: [
     FormsModule,

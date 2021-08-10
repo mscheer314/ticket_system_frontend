@@ -2,10 +2,15 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col" (click)="changeSort('ticketNumber')">Ticket Number</th>
-        <th scope="col" (click)="changeSort('title')">Title</th>
-        <th scope="col" (click)="changeSort('description')">Description</th>
-        <th scope="col" (click)="changeSort('createdOn')">Created On</th>
+        <th scope="col" [appSort]="visableTickets" data-order="desc" data-name="id"><span>Ticket Number <i
+              class="fa fa-sort" aria-hidden="true"></i></span></th>
+        <th scope="col" [appSort]="visableTickets" data-order="desc" data-name="title"><span>Title <i class="fa fa-sort"
+              aria-hidden="true"></i></span>
+        </th>
+        <th scope="col" [appSort]="visableTickets" data-order="desc" data-name="description"><span>Description <i
+              class="fa fa-sort" aria-hidden="true"></i></span></th>
+        <th scope="col" [appSort]="visableTickets" data-order="desc" data-name="createdOn"><span>Created On <i
+              class="fa fa-sort" aria-hidden="true"></i></span></th>
         <th scope="col"></th>
       </tr>
     </thead>
