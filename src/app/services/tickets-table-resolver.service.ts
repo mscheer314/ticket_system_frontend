@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Resolve } from '@angular/router';
+
 import { first } from 'rxjs/operators';
 import { Ticket } from '../models/Ticket';
 import { TicketService } from './ticket.service';
@@ -7,7 +7,7 @@ import { TicketService } from './ticket.service';
 @Injectable({
   providedIn: 'root',
 })
-export class TicketsTableResolverService implements Resolve<Ticket[]> {
+export class TicketsTableResolverService  {
   constructor(private ticketService: TicketService) {}
 
   resolve() {
