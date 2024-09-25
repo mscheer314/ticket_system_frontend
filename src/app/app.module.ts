@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,29 +17,22 @@ import { TicketResolverService } from './services/ticket-resolver.service';
 import { TicketService } from './services/ticket.service';
 import { TicketsTableResolverService } from './services/tickets-table-resolver.service';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    CreateTicketComponent,
-    TicketsTableComponent,
-    TicketDetailsComponent,
-    NavBarComponent,
-    ErrorFourZeroFourComponent,
-    SortDirective,
-  ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes),
-  ],
-  providers: [
-    TicketService,
-    TicketResolverService,
-    TicketsTableResolverService,
-    // { provide: 'canDeactiveCreateTicket', useValue: checkDirtyState },
-  ],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        CreateTicketComponent,
+        TicketsTableComponent,
+        TicketDetailsComponent,
+        NavBarComponent,
+        ErrorFourZeroFourComponent,
+        SortDirective,
+    ],
+    bootstrap: [AppComponent], imports: [FormsModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        RouterModule.forRoot(appRoutes)], providers: [
+        TicketService,
+        TicketResolverService,
+        TicketsTableResolverService,
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule {}
