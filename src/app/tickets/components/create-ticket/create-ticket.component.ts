@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,20 +17,20 @@ import { TicketService } from '../../../services/ticket.service';
 })
 export class CreateTicketComponent implements OnInit {
   id: number;
-  ticketForm: FormGroup;
+  ticketForm: UntypedFormGroup;
   ticket: Ticket;
-  title: FormControl;
-  description: FormControl;
+  title: UntypedFormControl;
+  description: UntypedFormControl;
   isCreateMode: boolean;
 
   constructor(
     private ticketService: TicketService,
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {
-    this.title = new FormControl('', Validators.required);
-    this.description = new FormControl('', Validators.required);
+    this.title = new UntypedFormControl('', Validators.required);
+    this.description = new UntypedFormControl('', Validators.required);
     this.ticketForm = this.formBuilder.group({
       title: this.title,
       description: this.description,
